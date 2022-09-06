@@ -1,0 +1,29 @@
+<html>
+    <head>
+        
+		<link rel="stylesheet" href="assets/css/myForm.css" />
+		<link rel="stylesheet" href="assets/css/sweetalert2.min.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div style = "opacity:1" class="readyAnimation wow animate__animated animate__backInUp">
+        <footer id = "table" style="height: 80%; width:1150px; position:relative; margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;">
+             <div class="myForm">
+                <input type="text" id="quickFilter" class="ag-default"oninput="onQuickFilterChanged('quickFilter')" id="quickFilter" placeholder="quick filter..."/>
+                <div id="grid" class="ag-theme-alpine-dark"></div>
+                <button id="submitSelected" onclick="testSubmit()" style="margin-top:15px"> submit </button>
+            </div>
+        </footer>
+        </div>
+        <script src="assets/js/lib/sweetalert2.min.js"></script>
+        <script src="assets/js/lib/jquery.min.js"></script>
+        <script src="assets/js/lib/agTable.min.js"></script>
+        <script src="assets/js/dummyRequest.js"></script>
+        <script src="assets/js/table.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
+    
+</html>
