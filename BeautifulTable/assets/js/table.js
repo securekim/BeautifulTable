@@ -61,7 +61,6 @@ let gridOptions = {}
 const onQuickFilterChanged = async (divId) => {
     gridOptions.api.setQuickFilter(document.getElementById(divId).value);
 }
-
 const createTable = async(divId, rowData) => {
     gridOptions = {
       rowHeight: 110,
@@ -69,7 +68,8 @@ const createTable = async(divId, rowData) => {
           filter:true,
           resizable: true,
           sortable: true,
-          suppressSizeToFit: false
+          suppressSizeToFit: false,
+          filterParams: { newRowsAction: 'keep'}
         },
       columnDefs: columnDefs,
       rowData: rowData,
@@ -78,6 +78,7 @@ const createTable = async(divId, rowData) => {
       pagination:true,
       //paginationAutoPageSize=true,
       isRowSelectable: (params) => {
+        console.log(params)
         if(!!params.data && typeof params.data.selectable !="undefined" && !params.data.selectable){
             return false
         } 
@@ -90,7 +91,10 @@ const createTable = async(divId, rowData) => {
 }
 
 const updateTable = async (rowData) => {
+    //update : 
+    //gridOptions.api.redrawRows(rowData)
     gridOptions.api.setRowData(rowData);
+    gridOptions.api.sizeColumnsToFit();
 }
 
 const testAlert = (data) =>{
