@@ -5,6 +5,13 @@ const getTotalPage = () =>{
 const getMyData_local = (page) => {
     const rowDataPage1 = [
         {
+            "id":"Not Selectable",
+            "name":"테스터",
+            "button":"버튼", 
+            "image":"https://unsplash.it/100/100",
+            "selectable":false
+        },
+        {
             "id":"테스트",
             "name":"테스터",
             "button":"버튼", 

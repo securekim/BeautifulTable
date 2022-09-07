@@ -46,7 +46,8 @@ let columnDefs = [
         cellClass: 'cell-wrap-text',
         headerCheckboxSelection: true,
         headerCheckboxSelectionFilteredOnly: true,
-        checkboxSelection: true
+        checkboxSelection: true,
+        showDisabledCheckboxes: true,
     },
     {headerName: "아이디", field: "id"},
     {headerName: "이름", field: "name"},
@@ -76,6 +77,12 @@ const createTable = async(divId, rowData) => {
       rowMultiSelectWithClick :true,
       pagination:true,
       //paginationAutoPageSize=true,
+      isRowSelectable: (params) => {
+        if(!!params.data && typeof params.data.selectable !="undefined" && !params.data.selectable){
+            return false
+        } 
+        return true
+      },
     };
     var gridDiv = document.querySelector('#'+divId);
     new agGrid.Grid(gridDiv, gridOptions);
